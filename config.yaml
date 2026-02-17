@@ -1,0 +1,124 @@
+# SimpleGRN Configuration File
+# This file contains all hyperparameters and settings for the project
+
+# Data settings
+data:
+  # Directory where raw data will be downloaded
+  raw_data_dir: './data/raw'
+
+  # Directory for processed data
+  processed_data_dir: './data/processed'
+
+  # Multi-dataset configuration (GRNFormer protocol)
+  # Training datasets: model learns from these
+  # Test datasets: blind evaluation (never seen during training)
+  datasets:
+    train:
+      - beeline_hESC
+      - beeline_hHep
+      - beeline_mDC
+      - beeline_mHSC-GM
+      - beeline_mHSC-E
+    test:
+      - beeline_mESC
+      - beeline_mHSC-L
+
+  # Keep for backward compatibility with single-dataset runs
+  dataset_name: 'beeline_hESC'
+
+  # Minimum correlation threshold for creating co-expression edges
+  # Higher values = sparser graph, Lower values = denser graph
+  correlation_threshold: 0.3
+
+  # Maximum number of genes to use (for computational efficiency)
+  # Set to null to use all genes
+  max_genes: 1000
+
+  # Include only TF genes in the analysis
+  use_only_tfs: false
+
+# Model architecture settings
+model:
+  # Model type: 'mlp', 'gcn', 'gat', 'graphsage', 'gin', or 'transformer'
+  # BEST: 'transformer' with 'leaky_relu' achieved AUROC=0.9766 in previous experiments
+  model_type: 'transformer'
+
+  # Hidden dimension size - 64 works well for this dataset size
+  hidden_dim: 64
+
+  # Number of layers
+  num_layers: 2
+
+  # Dropout rate (prevents overfitting)
+  dropout: 0.2
+
+  # Number of attention heads (for GAT and transformer)
+  num_heads: 4
+
+  # Activation function: 'leaky_relu' works best with transformer
+  activation: 'leaky_relu'
+
+# Training settings
+training:
+  # Number of training epochs
+  num_epochs: 1000
+
+  # Batch size (number of edges to process at once)
+  batch_size: 1024
+
+  # Learning rate - moderate for stable training
+  learning_rate: 0.0005
+
+  # Weight decay (L2 regularization)
+  weight_decay: 0.00001
+
+  # Train/validation/test split ratios
+  train_ratio: 0.7
+  val_ratio: 0.15
+  test_ratio: 0.15
+
+  # Early stopping patience (stop if no improvement for N epochs)
+  patience: 100
+
+  # Random seed for reproducibility
+  seed: 42
+
+  # Use GPU if available
+  use_gpu: true
+
+# Loss function settings
+loss:
+  # Loss type: 'adaptive' (uses AdaptivePrecisionRecallLoss) or 'bce'
+  loss_type: 'adaptive'
+
+  # Ratio of negative to positive samples
+  # Using 2:1 ratio - too many negatives can hurt learning
+  neg_sampling_ratio: 2.0
+
+# Evaluation settings
+evaluation:
+  # Metrics to compute: 'auroc', 'auprc', 'f1', 'precision', 'recall'
+  metrics: ['auroc', 'auprc', 'f1', 'precision', 'recall']
+
+  # Threshold for binary classification
+  threshold: 0.77
+
+  # Number of bootstrap iterations for confidence intervals
+  bootstrap_iterations: 10
+
+# Output settings
+output:
+  # Directory for model checkpoints
+  checkpoint_dir: './checkpoints'
+
+  # Directory for results (predictions, metrics, plots)
+  results_dir: './results'
+
+  # Directory for logs
+  log_dir: './logs'
+
+  # Save predictions to CSV
+  save_predictions: true
+
+  # Generate visualization plots
+  generate_plots: true
