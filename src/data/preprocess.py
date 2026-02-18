@@ -1,18 +1,3 @@
-"""
-Data Preprocessing Script for GeneInference
-=============================================
-
-Preprocesses gene expression data and creates graph structures for training.
-
-Multi-dataset pipeline (GRNFormer protocol):
-- Processes each cell type independently into its own graph
-- Each dataset gets: co-expression graph, node features, ground truth edges
-- Saves per-dataset to data/processed/{cell_type}/
-
-Author: [Kyler Zook]
-Date: [10-21-2025]
-"""
-
 import os
 import numpy as np
 import pandas as pd

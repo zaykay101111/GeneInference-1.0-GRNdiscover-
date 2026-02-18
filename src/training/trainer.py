@@ -1,22 +1,3 @@
-"""
-Training Script for SimpleGRN
-==============================
-
-This script trains the GRN inference model using the processed data.
-
-Training loop:
-1. Load processed data and create dataloaders
-2. Initialize model, optimizer, and loss function
-3. For each epoch:
-   - Train on training set
-   - Evaluate on validation set
-   - Save best model
-4. Load best model and evaluate on test set
-
-Author: [Your Name]
-Date: [Date]
-"""
-
 import os
 import torch
 import torch.nn as nn
@@ -71,15 +52,6 @@ class AdaptivePrecisionRecallLoss(nn.Module):
         self.target_precision = 0.90
 
     def update_weights(self, current_recall, current_precision):
-        """
-        Dynamically adjust weights based on current metrics.
-        Called after each epoch to adapt the loss function.
-
-        Strategy:
-        1. If recall is very low (<0.5), strongly increase FN weight
-        2. If recall is moderate but below target, gently increase FN weight
-        3. If recall is good but precision is low, increase FP weight
-        """
         # Strong adjustment if recall is very poor
         if current_recall < 0.5:
             self.fn_weight *= 1.05
@@ -118,7 +90,7 @@ class RecallPrecisionLoss(nn.Module):
 
     NOTE: This is the legacy version. Use AdaptivePrecisionRecallLoss for better results.
     """
-    def __init__(self, false_negative_weight=200.0, false_positive_weight=10.0, gamma=2.0):
+    def __init__(self, false_negative_weight=100.0, false_positive_weight=10.0, gamma=2.0):
         super(RecallPrecisionLoss, self).__init__()
         self.fn_weight = false_negative_weight
         self.fp_weight = false_positive_weight
@@ -304,7 +276,7 @@ def validate_epoch(model, data, val_loader, criterion, device, config,
     # Find optimal threshold if requested
     if find_threshold:
         optimal_threshold, threshold_metrics = find_optimal_threshold(
-            all_predictions, all_labels, metric='f1'
+            all_predictions, all_labels, metric='f1_weighted'
         )
         if not quiet:
             print(f"\n  Optimal threshold: {optimal_threshold:.4f}")
@@ -459,8 +431,8 @@ def train(config, quiet=True):
     # FN weight >> FP weight ensures high recall
     # Focal loss (gamma=2.0) helps with hard examples
     criterion = RecallPrecisionLoss(
-        false_negative_weight=50.0,
-        false_positive_weight=20.0,
+        false_negative_weight=200.0,
+        false_positive_weight=10.0,
         gamma=2.0
     )
 
@@ -657,7 +629,7 @@ def train(config, quiet=True):
         print(f"    Recall: {constrained_recall:.4f}")
 
     # Use constrained threshold if it gives better recall with acceptable precision
-    if constrained_recall >= 0.99 and constrained_precision >= 0.85:
+    if constrained_recall >= 0.99 and constrained_precision >= 0.75:
         optimal_threshold = constrained_threshold
         if not quiet:
             print(f"\n  Using constrained threshold for better recall")

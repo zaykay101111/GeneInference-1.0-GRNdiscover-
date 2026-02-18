@@ -1,24 +1,3 @@
-"""
-PyTorch Dataset for GRN Inference
-===================================
-
-This module defines custom dataset classes for training and evaluating
-the GRN inference model.
-
-Key concept: Edge Prediction Task
-----------------------------------
-GRN inference is formulated as an edge prediction (link prediction) task:
-- Given: Gene expression graph with co-expression edges
-- Predict: Which edges represent true regulatory relationships
-
-Training data consists of:
-- Positive samples: Known TF->gene regulatory edges (from ground truth)
-- Negative samples: Gene pairs with no known regulatory relationship
-
-Author: [Kyler Zook]
-Date: [10-28-2025]
-"""
-
 import torch
 from torch.utils.data import Dataset
 from torch.utils.data import DataLoader

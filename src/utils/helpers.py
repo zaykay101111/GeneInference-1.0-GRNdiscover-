@@ -1,13 +1,3 @@
-"""
-Utility Functions for SimpleGRN
-================================
-
-Helper functions used throughout the project.
-
-Author: [Your Name]
-Date: [Date]
-"""
-
 import torch
 import numpy as np
 import random
@@ -300,45 +290,3 @@ def count_parameters(model):
     """Count trainable parameters in model."""
     return sum(p.numel() for p in model.parameters() if p.requires_grad)
 
-
-# ==============================================================================
-# STUDENT EXERCISES
-# ==============================================================================
-
-"""
-EXERCISE: Add logging functionality
-
-Task: Create logger class for better logging
-
-```python
-import logging
-from datetime import datetime
-
-class Logger:
-    def __init__(self, log_dir):
-        timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
-        log_file = os.path.join(log_dir, f'train_{timestamp}.log')
-
-        logging.basicConfig(
-            level=logging.INFO,
-            format='%(asctime)s - %(levelname)s - %(message)s',
-            handlers=[
-                logging.FileHandler(log_file),
-                logging.StreamHandler()
-            ]
-        )
-        self.logger = logging.getLogger(__name__)
-
-    def info(self, msg):
-        self.logger.info(msg)
-
-    def error(self, msg):
-        self.logger.error(msg)
-```
-
-Use in train.py:
-```python
-logger = Logger(config['output']['log_dir'])
-logger.info('Starting training...')
-```
-"""

@@ -32,7 +32,7 @@ data:
 
   # Maximum number of genes to use (for computational efficiency)
   # Set to null to use all genes
-  max_genes: 1000
+  max_genes: 2000
 
   # Include only TF genes in the analysis
   use_only_tfs: false
@@ -101,7 +101,7 @@ evaluation:
   metrics: ['auroc', 'auprc', 'f1', 'precision', 'recall']
 
   # Threshold for binary classification
-  threshold: 0.77
+  threshold: 0.5
 
   # Number of bootstrap iterations for confidence intervals
   bootstrap_iterations: 10

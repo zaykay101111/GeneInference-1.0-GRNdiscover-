@@ -1,13 +1,3 @@
-"""
-Prediction Script for SimpleGRN
-================================
-
-Make predictions on new data using trained model.
-
-Author: [Your Name]
-Date: [Date]
-"""
-
 import torch
 import pandas as pd
 import yaml

@@ -1,14 +1,3 @@
-"""
-Evaluation Script for SimpleGRN
-================================
-
-This script provides detailed evaluation of trained models,
-including performance metrics, visualizations, and error analysis.
-
-Author: Kyler Zook
-Date: January 2026
-"""
-
 import os
 import torch
 import pandas as pd

@@ -1,20 +1,3 @@
-"""
-Data Download Script for GeneInference
-====================================
-
-Downloads BEELINE benchmark datasets for multi-dataset GRN inference training.
-
-Following the GRNFormer protocol:
-- Training: hESC, hHep, mDC, mHSC-GM, mHSC-E
-- Blind test: mESC, mHSC-L
-
-Citation: Pratapa et al. (2020) Nature Methods
-URL: https://zenodo.org/records/3701939
-
-Author: [Kyler Zook]
-Date: [10/20/2025]
-"""
-
 import os
 import shutil
 import requests

@@ -1,23 +1,3 @@
-"""
-Graph Neural Network Models for GRN Inference
-==============================================
-
-This module implements various GNN architectures for edge prediction.
-
-We implement three models:
-1. GCN (Graph Convolutional Network) - Simplest, good baseline
-2. GAT (Graph Attention Network) - Learns attention weights
-3. GraphSAGE - Sampling-based, scalable
-
-All models follow the same pattern:
-1. Encode nodes using GNN layers
-2. Compute edge scores using learned node embeddings
-3. Predict probability of regulatory interaction
-
-Author: [Your Name]
-Date: [Date]
-"""
-
 import torch
 import torch.nn as nn
 import torch.nn.functional as F

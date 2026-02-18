@@ -1,8 +1,3 @@
-"""
-Experiment Management System for GeneInference Pipeline
-Handles experiment tracking, storage, and retrieval
-"""
-
 import os
 import json
 import yaml
