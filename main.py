@@ -423,8 +423,12 @@ def sweep_experiment(config, experiment_id, exp_manager, sweep_config_path):
                 'run_name': run_name,
                 'experiment_id': sub_exp_id,
                 **{name: value for name, value in zip(param_names, combination)},
-                **results['test_metrics']
             }
+
+            # Only add metrics if training returned results
+            if results and 'test_metrics' in results:
+                result_entry.update(results['test_metrics'])
+                
             all_results.append(result_entry)
 
         # Save sweep results
