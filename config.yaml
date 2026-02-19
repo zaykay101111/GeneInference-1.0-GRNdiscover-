@@ -47,7 +47,7 @@ model:
   hidden_dim: 64
 
   # Number of layers
-  num_layers: 2
+  num_layers: 3
 
   # Dropout rate (prevents overfitting)
   dropout: 0.2
@@ -61,7 +61,7 @@ model:
 # Training settings
 training:
   # Number of training epochs
-  num_epochs: 1000
+  num_epochs: 100
 
   # Batch size (number of edges to process at once)
   batch_size: 1024
@@ -78,7 +78,7 @@ training:
   test_ratio: 0.15
 
   # Early stopping patience (stop if no improvement for N epochs)
-  patience: 100
+  patience: 20
 
   # Random seed for reproducibility
   seed: 42
