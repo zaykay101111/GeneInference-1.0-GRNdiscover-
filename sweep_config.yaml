@@ -1,40 +1,26 @@
-# Hyperparameter Sweep Configuration
-# This file defines the parameter grid for systematic exploration
-# Each parameter will be tested in all combinations
 
-# Model architecture parameter
+#48 combinations
+
 model.model_type:
   - transformer
   - gat
   - gin
 
-# Activation functions to test
 model.activation:
   - leaky_relu
   - gelu
-  - silu
 
-# Hidden dimensions
 model.hidden_dim:
   - 64
   - 128
 
-# Number of GNN layers
 model.num_layers:
   - 2
   - 3
 
-# Dropout rates
 model.dropout:
-  - 0.1
   - 0.2
-  - 0.3
 
-# Learning rates
 training.learning_rate:
-  - 0.0001
   - 0.0005
   - 0.001
-
-# Example: To run a smaller sweep, comment out parameters or reduce values
-# This configuration will test: 3 models × 3 activations × 2 hidden_dims × 2 layers × 3 dropouts × 3 lrs = 324 experiments
