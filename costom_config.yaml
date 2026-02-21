@@ -1,7 +1,0 @@
-hidden_dim: 64
-model_type: 'transformer'
-num_layers: 2
-learning_rate: .0005
-num_epochs: 1000
-patience: 100
-activation: 'leaky_relu'

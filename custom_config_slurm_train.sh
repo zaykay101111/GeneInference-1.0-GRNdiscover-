@@ -20,6 +20,6 @@ cd /mnt/pixstor/data/kjz6f3/GeneInference-1.0-GRNdiscover-
 source ~/.bashrc
 conda activate geneinference
 
-python main.py --experiment-type train --config costom_config.yaml
+python main.py --experiment-type train --config custom_config.yaml
 
 echo "End: $(date)"
