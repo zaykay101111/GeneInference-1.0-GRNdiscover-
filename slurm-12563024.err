@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "/mnt/pixstor/data/kjz6f3/GeneInference-1.0-GRNdiscover-/main.py", line 668, in <module>
+    main()
+  File "/mnt/pixstor/data/kjz6f3/GeneInference-1.0-GRNdiscover-/main.py", line 642, in main
+    train_experiment(config, experiment_id, exp_manager, resume_from=args.resume_from)
+  File "/mnt/pixstor/data/kjz6f3/GeneInference-1.0-GRNdiscover-/main.py", line 124, in train_experiment
+    config['output']['checkpoint_dir'] = str(exp_dir / 'checkpoints')
+    ~~~~~~^^^^^^^^^^
+KeyError: 'output'

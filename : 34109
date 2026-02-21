@@ -1,0 +1,1993 @@
+Thu Feb 19 22:20:59 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 590.48.01              Driver Version: 590.48.01      CUDA Version: 13.1     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A100 80GB PCIe          On  |   00000000:17:00.0 Off |                    0 |
+| N/A   54C    P0             63W /  300W |       0MiB /  81920MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+✓ Created experiment: 20260219_222103_sweep_transformer_leaky_relu_h64_l3_beeline_hESC
+  Directory: experiments/20260219_222103_sweep_transformer_leaky_relu_h64_l3_beeline_hESC
+
+================================================================================
+HYPERPARAMETER SWEEP EXPERIMENT
+================================================================================
+
+Total configurations to test: 48
+
+Loading preprocessed data...
+
+[1/48] Running: model_type=transformer_activation=leaky_relu_hidden_dim=64_num_layers=2_dropout=0.2_learning_rate=0.0005
+✓ Created experiment: 20260219_222106_sweep_run_transformer_leaky_relu_h64_l2_beeline_hESC
+  Directory: experiments/20260219_222106_sweep_run_transformer_leaky_relu_h64_l2_beeline_hESC
+
+================================================================================
+TRAINING EXPERIMENT
+================================================================================
+
+Starting training...
+
+Using device: cuda
+
+  Loading training datasets...
+  Loaded hESC: 2000 genes, 45413 GT edges
+  Loaded hHep: 2000 genes, 44387 GT edges
+  Loaded mDC: 2000 genes, 3811 GT edges
+  Loaded mHSC-GM: 2000 genes, 48067 GT edges
+  Loaded mHSC-E: 2000 genes, 48728 GT edges
+
+  Loading test datasets...
+  Loaded mESC: 2000 genes, 1573 GT edges
+  Loaded mHSC-L: 2000 genes, 47978 GT edges
+
+Creating multi-dataset data loaders
+
+Splitting edges into train/val/test
+  Train edges: 31789
+  Val edges: 6811
+  Test edges: 6813
+  [hESC] train=31789, val=6811, test=6813
+
+Splitting edges into train/val/test
+  Train edges: 31070
+  Val edges: 6658
+  Test edges: 6659
+  [hHep] train=31070, val=6658, test=6659
+
+Splitting edges into train/val/test
+  Train edges: 2667
+  Val edges: 571
+  Test edges: 573
+  [mDC] train=2667, val=571, test=573
+
+Splitting edges into train/val/test
+  Train edges: 33646
+  Val edges: 7210
+  Test edges: 7211
+  [mHSC-GM] train=33646, val=7210, test=7211
+
+Splitting edges into train/val/test
+  Train edges: 34109
+  Val edges: 7309
+  Test edges: 7310
+  [mHSC-E] train=34109, val=7309, test=7310
+  Saved multi-dataset edge splits to experiments/20260219_222106_sweep_run_transformer_leaky_relu_h64_l2_beeline_hESC/edge_splits/edge_splits.pkl
+
+  Multi-dataset summary:
+    Train samples: 133281 (from 5 datasets)
+    Val samples: 28559
+    Train batches: 131
+    Val batches: 28
+    Test [mESC]: 2 batches
+    Test [mHSC-L]: 47 batches
+
+Created TRANSFORMER model
+  Parameters: 50,497
+  Hidden dim: 64
+  Num layers: 2
+  Activation: leaky_relu
+  Dropout: 0.2
+✓ Saved results to experiments/20260219_222106_sweep_run_transformer_leaky_relu_h64_l2_beeline_hESC/results/results.yaml
+
+✓ Training completed successfully
+
+Test Metrics:
+  AUROC:     0.8736
+  AUPRC:     0.7201
+  Precision: 0.6701
+  Recall:    0.6075
+  F1:        0.5948
+  Threshold: 0.6826
+
+  Per-dataset test metrics:
+    [mESC] AUROC=0.8004 AUPRC=0.5705 F1=0.3398
+    [mHSC-L] AUROC=0.9468 AUPRC=0.8697 F1=0.8498
+
+[2/48] Running: model_type=transformer_activation=leaky_relu_hidden_dim=64_num_layers=2_dropout=0.2_learning_rate=0.001
+✓ Created experiment: 20260219_225134_sweep_run_transformer_leaky_relu_h64_l2_beeline_hESC
+  Directory: experiments/20260219_225134_sweep_run_transformer_leaky_relu_h64_l2_beeline_hESC
+
+================================================================================
+TRAINING EXPERIMENT
+================================================================================
+
+Starting training...
+
+Using device: cuda
+
+  Loading training datasets...
+  Loaded hESC: 2000 genes, 45413 GT edges
+  Loaded hHep: 2000 genes, 44387 GT edges
+  Loaded mDC: 2000 genes, 3811 GT edges
+  Loaded mHSC-GM: 2000 genes, 48067 GT edges
+  Loaded mHSC-E: 2000 genes, 48728 GT edges
+
+  Loading test datasets...
+  Loaded mESC: 2000 genes, 1573 GT edges
+  Loaded mHSC-L: 2000 genes, 47978 GT edges
+
+Creating multi-dataset data loaders
+
+Splitting edges into train/val/test
+  Train edges: 31789
+  Val edges: 6811
+  Test edges: 6813
+  [hESC] train=31789, val=6811, test=6813
+
+Splitting edges into train/val/test
+  Train edges: 31070
+  Val edges: 6658
+  Test edges: 6659
+  [hHep] train=31070, val=6658, test=6659
+
+Splitting edges into train/val/test
+  Train edges: 2667
+  Val edges: 571
+  Test edges: 573
+  [mDC] train=2667, val=571, test=573
+
+Splitting edges into train/val/test
+  Train edges: 33646
+  Val edges: 7210
+  Test edges: 7211
+  [mHSC-GM] train=33646, val=7210, test=7211
+
+Splitting edges into train/val/test
+  Train edges: 34109
+  Val edges: 7309
+  Test edges: 7310
+  [mHSC-E] train=34109, val=7309, test=7310
+  Saved multi-dataset edge splits to experiments/20260219_225134_sweep_run_transformer_leaky_relu_h64_l2_beeline_hESC/edge_splits/edge_splits.pkl
+
+  Multi-dataset summary:
+    Train samples: 133281 (from 5 datasets)
+    Val samples: 28559
+    Train batches: 131
+    Val batches: 28
+    Test [mESC]: 2 batches
+    Test [mHSC-L]: 47 batches
+
+Created TRANSFORMER model
+  Parameters: 50,497
+  Hidden dim: 64
+  Num layers: 2
+  Activation: leaky_relu
+  Dropout: 0.2
+✓ Saved results to experiments/20260219_225134_sweep_run_transformer_leaky_relu_h64_l2_beeline_hESC/results/results.yaml
+
+✓ Training completed successfully
+
+Test Metrics:
+  AUROC:     0.8569
+  AUPRC:     0.7061
+  Precision: 0.6425
+  Recall:    0.5094
+  F1:        0.4797
+  Threshold: 0.6560
+
+  Per-dataset test metrics:
+    [mESC] AUROC=0.7635 AUPRC=0.5277 F1=0.1155
+    [mHSC-L] AUROC=0.9502 AUPRC=0.8845 F1=0.8438
+
+[3/48] Running: model_type=transformer_activation=leaky_relu_hidden_dim=64_num_layers=3_dropout=0.2_learning_rate=0.0005
+✓ Created experiment: 20260219_232202_sweep_run_transformer_leaky_relu_h64_l3_beeline_hESC
+  Directory: experiments/20260219_232202_sweep_run_transformer_leaky_relu_h64_l3_beeline_hESC
+
+================================================================================
+TRAINING EXPERIMENT
+================================================================================
+
+Starting training...
+
+Using device: cuda
+
+  Loading training datasets...
+  Loaded hESC: 2000 genes, 45413 GT edges
+  Loaded hHep: 2000 genes, 44387 GT edges
+  Loaded mDC: 2000 genes, 3811 GT edges
+  Loaded mHSC-GM: 2000 genes, 48067 GT edges
+  Loaded mHSC-E: 2000 genes, 48728 GT edges
+
+  Loading test datasets...
+  Loaded mESC: 2000 genes, 1573 GT edges
+  Loaded mHSC-L: 2000 genes, 47978 GT edges
+
+Creating multi-dataset data loaders
+
+Splitting edges into train/val/test
+  Train edges: 31789
+  Val edges: 6811
+  Test edges: 6813
+  [hESC] train=31789, val=6811, test=6813
+
+Splitting edges into train/val/test
+  Train edges: 31070
+  Val edges: 6658
+  Test edges: 6659
+  [hHep] train=31070, val=6658, test=6659
+
+Splitting edges into train/val/test
+  Train edges: 2667
+  Val edges: 571
+  Test edges: 573
+  [mDC] train=2667, val=571, test=573
+
+Splitting edges into train/val/test
+  Train edges: 33646
+  Val edges: 7210
+  Test edges: 7211
+  [mHSC-GM] train=33646, val=7210, test=7211
+
+Splitting edges into train/val/test
+  Train edges: 34109
+  Val edges: 7309
+  Test edges: 7310
+  [mHSC-E] train=34109, val=7309, test=7310
+  Saved multi-dataset edge splits to experiments/20260219_232202_sweep_run_transformer_leaky_relu_h64_l3_beeline_hESC/edge_splits/edge_splits.pkl
+
+  Multi-dataset summary:
+    Train samples: 133281 (from 5 datasets)
+    Val samples: 28559
+    Train batches: 131
+    Val batches: 28
+    Test [mESC]: 2 batches
+    Test [mHSC-L]: 47 batches
+
+Created TRANSFORMER model
+  Parameters: 67,265
+  Hidden dim: 64
+  Num layers: 3
+  Activation: leaky_relu
+  Dropout: 0.2
+✓ Saved results to experiments/20260219_232202_sweep_run_transformer_leaky_relu_h64_l3_beeline_hESC/results/results.yaml
+
+✓ Training completed successfully
+
+Test Metrics:
+  AUROC:     0.8660
+  AUPRC:     0.6917
+  Precision: 0.5747
+  Recall:    0.5033
+  F1:        0.4612
+  Threshold: 0.6717
+
+  Per-dataset test metrics:
+    [mESC] AUROC=0.7939 AUPRC=0.5361 F1=0.0759
+    [mHSC-L] AUROC=0.9382 AUPRC=0.8474 F1=0.8465
+
+[4/48] Running: model_type=transformer_activation=leaky_relu_hidden_dim=64_num_layers=3_dropout=0.2_learning_rate=0.001
+✓ Created experiment: 20260219_235807_sweep_run_transformer_leaky_relu_h64_l3_beeline_hESC
+  Directory: experiments/20260219_235807_sweep_run_transformer_leaky_relu_h64_l3_beeline_hESC
+
+================================================================================
+TRAINING EXPERIMENT
+================================================================================
+
+Starting training...
+
+Using device: cuda
+
+  Loading training datasets...
+  Loaded hESC: 2000 genes, 45413 GT edges
+  Loaded hHep: 2000 genes, 44387 GT edges
+  Loaded mDC: 2000 genes, 3811 GT edges
+  Loaded mHSC-GM: 2000 genes, 48067 GT edges
+  Loaded mHSC-E: 2000 genes, 48728 GT edges
+
+  Loading test datasets...
+  Loaded mESC: 2000 genes, 1573 GT edges
+  Loaded mHSC-L: 2000 genes, 47978 GT edges
+
+Creating multi-dataset data loaders
+
+Splitting edges into train/val/test
+  Train edges: 31789
+  Val edges: 6811
+  Test edges: 6813
+  [hESC] train=31789, val=6811, test=6813
+
+Splitting edges into train/val/test
+  Train edges: 31070
+  Val edges: 6658
+  Test edges: 6659
+  [hHep] train=31070, val=6658, test=6659
+
+Splitting edges into train/val/test
+  Train edges: 2667
+  Val edges: 571
+  Test edges: 573
+  [mDC] train=2667, val=571, test=573
+
+Splitting edges into train/val/test
+  Train edges: 33646
+  Val edges: 7210
+  Test edges: 7211
+  [mHSC-GM] train=33646, val=7210, test=7211
+
+Splitting edges into train/val/test
+  Train edges: 34109
+  Val edges: 7309
+  Test edges: 7310
+  [mHSC-E] train=34109, val=7309, test=7310
+  Saved multi-dataset edge splits to experiments/20260219_235807_sweep_run_transformer_leaky_relu_h64_l3_beeline_hESC/edge_splits/edge_splits.pkl
+
+  Multi-dataset summary:
+    Train samples: 133281 (from 5 datasets)
+    Val samples: 28559
+    Train batches: 131
+    Val batches: 28
+    Test [mESC]: 2 batches
+    Test [mHSC-L]: 47 batches
+
+Created TRANSFORMER model
+  Parameters: 67,265
+  Hidden dim: 64
+  Num layers: 3
+  Activation: leaky_relu
+  Dropout: 0.2
+✓ Saved results to experiments/20260219_235807_sweep_run_transformer_leaky_relu_h64_l3_beeline_hESC/results/results.yaml
+
+✓ Training completed successfully
+
+Test Metrics:
+  AUROC:     0.8599
+  AUPRC:     0.6882
+  Precision: 0.6071
+  Recall:    0.4823
+  F1:        0.4457
+  Threshold: 0.6839
+
+  Per-dataset test metrics:
+    [mESC] AUROC=0.7794 AUPRC=0.5234 F1=0.0584
+    [mHSC-L] AUROC=0.9404 AUPRC=0.8530 F1=0.8330
+
+[5/48] Running: model_type=transformer_activation=leaky_relu_hidden_dim=128_num_layers=2_dropout=0.2_learning_rate=0.0005
+✓ Created experiment: 20260220_003401_sweep_run_transformer_leaky_relu_h128_l2_beeline_hESC
+  Directory: experiments/20260220_003401_sweep_run_transformer_leaky_relu_h128_l2_beeline_hESC
+
+================================================================================
+TRAINING EXPERIMENT
+================================================================================
+
+Starting training...
+
+Using device: cuda
+
+  Loading training datasets...
+  Loaded hESC: 2000 genes, 45413 GT edges
+  Loaded hHep: 2000 genes, 44387 GT edges
+  Loaded mDC: 2000 genes, 3811 GT edges
+  Loaded mHSC-GM: 2000 genes, 48067 GT edges
+  Loaded mHSC-E: 2000 genes, 48728 GT edges
+
+  Loading test datasets...
+  Loaded mESC: 2000 genes, 1573 GT edges
+  Loaded mHSC-L: 2000 genes, 47978 GT edges
+
+Creating multi-dataset data loaders
+
+Splitting edges into train/val/test
+  Train edges: 31789
+  Val edges: 6811
+  Test edges: 6813
+  [hESC] train=31789, val=6811, test=6813
+
+Splitting edges into train/val/test
+  Train edges: 31070
+  Val edges: 6658
+  Test edges: 6659
+  [hHep] train=31070, val=6658, test=6659
+
+Splitting edges into train/val/test
+  Train edges: 2667
+  Val edges: 571
+  Test edges: 573
+  [mDC] train=2667, val=571, test=573
+
+Splitting edges into train/val/test
+  Train edges: 33646
+  Val edges: 7210
+  Test edges: 7211
+  [mHSC-GM] train=33646, val=7210, test=7211
+
+Splitting edges into train/val/test
+  Train edges: 34109
+  Val edges: 7309
+  Test edges: 7310
+  [mHSC-E] train=34109, val=7309, test=7310
+  Saved multi-dataset edge splits to experiments/20260220_003401_sweep_run_transformer_leaky_relu_h128_l2_beeline_hESC/edge_splits/edge_splits.pkl
+
+  Multi-dataset summary:
+    Train samples: 133281 (from 5 datasets)
+    Val samples: 28559
+    Train batches: 131
+    Val batches: 28
+    Test [mESC]: 2 batches
+    Test [mHSC-L]: 47 batches
+
+Created TRANSFORMER model
+  Parameters: 199,297
+  Hidden dim: 128
+  Num layers: 2
+  Activation: leaky_relu
+  Dropout: 0.2
+✓ Saved results to experiments/20260220_003401_sweep_run_transformer_leaky_relu_h128_l2_beeline_hESC/results/results.yaml
+
+✓ Training completed successfully
+
+Test Metrics:
+  AUROC:     0.8667
+  AUPRC:     0.7177
+  Precision: 0.6984
+  Recall:    0.5503
+  F1:        0.5420
+  Threshold: 0.6458
+
+  Per-dataset test metrics:
+    [mESC] AUROC=0.7907 AUPRC=0.5710 F1=0.2415
+    [mHSC-L] AUROC=0.9426 AUPRC=0.8644 F1=0.8425
+
+[6/48] Running: model_type=transformer_activation=leaky_relu_hidden_dim=128_num_layers=2_dropout=0.2_learning_rate=0.001
+✓ Created experiment: 20260220_010848_sweep_run_transformer_leaky_relu_h128_l2_beeline_hESC
+  Directory: experiments/20260220_010848_sweep_run_transformer_leaky_relu_h128_l2_beeline_hESC
+
+================================================================================
+TRAINING EXPERIMENT
+================================================================================
+
+Starting training...
+
+Using device: cuda
+
+  Loading training datasets...
+  Loaded hESC: 2000 genes, 45413 GT edges
+  Loaded hHep: 2000 genes, 44387 GT edges
+  Loaded mDC: 2000 genes, 3811 GT edges
+  Loaded mHSC-GM: 2000 genes, 48067 GT edges
+  Loaded mHSC-E: 2000 genes, 48728 GT edges
+
+  Loading test datasets...
+  Loaded mESC: 2000 genes, 1573 GT edges
+  Loaded mHSC-L: 2000 genes, 47978 GT edges
+
+Creating multi-dataset data loaders
+
+Splitting edges into train/val/test
+  Train edges: 31789
+  Val edges: 6811
+  Test edges: 6813
+  [hESC] train=31789, val=6811, test=6813
+
+Splitting edges into train/val/test
+  Train edges: 31070
+  Val edges: 6658
+  Test edges: 6659
+  [hHep] train=31070, val=6658, test=6659
+
+Splitting edges into train/val/test
+  Train edges: 2667
+  Val edges: 571
+  Test edges: 573
+  [mDC] train=2667, val=571, test=573
+
+Splitting edges into train/val/test
+  Train edges: 33646
+  Val edges: 7210
+  Test edges: 7211
+  [mHSC-GM] train=33646, val=7210, test=7211
+
+Splitting edges into train/val/test
+  Train edges: 34109
+  Val edges: 7309
+  Test edges: 7310
+  [mHSC-E] train=34109, val=7309, test=7310
+  Saved multi-dataset edge splits to experiments/20260220_010848_sweep_run_transformer_leaky_relu_h128_l2_beeline_hESC/edge_splits/edge_splits.pkl
+
+  Multi-dataset summary:
+    Train samples: 133281 (from 5 datasets)
+    Val samples: 28559
+    Train batches: 131
+    Val batches: 28
+    Test [mESC]: 2 batches
+    Test [mHSC-L]: 47 batches
+
+Created TRANSFORMER model
+  Parameters: 199,297
+  Hidden dim: 128
+  Num layers: 2
+  Activation: leaky_relu
+  Dropout: 0.2
+✓ Saved results to experiments/20260220_010848_sweep_run_transformer_leaky_relu_h128_l2_beeline_hESC/results/results.yaml
+
+✓ Training completed successfully
+
+Test Metrics:
+  AUROC:     0.8407
+  AUPRC:     0.7126
+  Precision: 0.6982
+  Recall:    0.5631
+  F1:        0.5874
+  Threshold: 0.6614
+
+  Per-dataset test metrics:
+    [mESC] AUROC=0.7368 AUPRC=0.5530 F1=0.3732
+    [mHSC-L] AUROC=0.9446 AUPRC=0.8722 F1=0.8016
+
+[7/48] Running: model_type=transformer_activation=leaky_relu_hidden_dim=128_num_layers=3_dropout=0.2_learning_rate=0.0005
+✓ Created experiment: 20260220_014336_sweep_run_transformer_leaky_relu_h128_l3_beeline_hESC
+  Directory: experiments/20260220_014336_sweep_run_transformer_leaky_relu_h128_l3_beeline_hESC
+
+================================================================================
+TRAINING EXPERIMENT
+================================================================================
+
+Starting training...
+
+Using device: cuda
+
+  Loading training datasets...
+  Loaded hESC: 2000 genes, 45413 GT edges
+  Loaded hHep: 2000 genes, 44387 GT edges
+  Loaded mDC: 2000 genes, 3811 GT edges
+  Loaded mHSC-GM: 2000 genes, 48067 GT edges
+  Loaded mHSC-E: 2000 genes, 48728 GT edges
+
+  Loading test datasets...
+  Loaded mESC: 2000 genes, 1573 GT edges
+  Loaded mHSC-L: 2000 genes, 47978 GT edges
+
+Creating multi-dataset data loaders
+
+Splitting edges into train/val/test
+  Train edges: 31789
+  Val edges: 6811
+  Test edges: 6813
+  [hESC] train=31789, val=6811, test=6813
+
+Splitting edges into train/val/test
+  Train edges: 31070
+  Val edges: 6658
+  Test edges: 6659
+  [hHep] train=31070, val=6658, test=6659
+
+Splitting edges into train/val/test
+  Train edges: 2667
+  Val edges: 571
+  Test edges: 573
+  [mDC] train=2667, val=571, test=573
+
+Splitting edges into train/val/test
+  Train edges: 33646
+  Val edges: 7210
+  Test edges: 7211
+  [mHSC-GM] train=33646, val=7210, test=7211
+
+Splitting edges into train/val/test
+  Train edges: 34109
+  Val edges: 7309
+  Test edges: 7310
+  [mHSC-E] train=34109, val=7309, test=7310
+  Saved multi-dataset edge splits to experiments/20260220_014336_sweep_run_transformer_leaky_relu_h128_l3_beeline_hESC/edge_splits/edge_splits.pkl
+
+  Multi-dataset summary:
+    Train samples: 133281 (from 5 datasets)
+    Val samples: 28559
+    Train batches: 131
+    Val batches: 28
+    Test [mESC]: 2 batches
+    Test [mHSC-L]: 47 batches
+
+Created TRANSFORMER model
+  Parameters: 265,601
+  Hidden dim: 128
+  Num layers: 3
+  Activation: leaky_relu
+  Dropout: 0.2
+✓ Saved results to experiments/20260220_014336_sweep_run_transformer_leaky_relu_h128_l3_beeline_hESC/results/results.yaml
+
+✓ Training completed successfully
+
+Test Metrics:
+  AUROC:     0.8824
+  AUPRC:     0.7307
+  Precision: 0.7062
+  Recall:    0.4868
+  F1:        0.4806
+  Threshold: 0.6609
+
+  Per-dataset test metrics:
+    [mESC] AUROC=0.8239 AUPRC=0.6059 F1=0.1542
+    [mHSC-L] AUROC=0.9410 AUPRC=0.8556 F1=0.8071
+
+[8/48] Running: model_type=transformer_activation=leaky_relu_hidden_dim=128_num_layers=3_dropout=0.2_learning_rate=0.001
+✓ Created experiment: 20260220_022612_sweep_run_transformer_leaky_relu_h128_l3_beeline_hESC
+  Directory: experiments/20260220_022612_sweep_run_transformer_leaky_relu_h128_l3_beeline_hESC
+
+================================================================================
+TRAINING EXPERIMENT
+================================================================================
+
+Starting training...
+
+Using device: cuda
+
+  Loading training datasets...
+  Loaded hESC: 2000 genes, 45413 GT edges
+  Loaded hHep: 2000 genes, 44387 GT edges
+  Loaded mDC: 2000 genes, 3811 GT edges
+  Loaded mHSC-GM: 2000 genes, 48067 GT edges
+  Loaded mHSC-E: 2000 genes, 48728 GT edges
+
+  Loading test datasets...
+  Loaded mESC: 2000 genes, 1573 GT edges
+  Loaded mHSC-L: 2000 genes, 47978 GT edges
+
+Creating multi-dataset data loaders
+
+Splitting edges into train/val/test
+  Train edges: 31789
+  Val edges: 6811
+  Test edges: 6813
+  [hESC] train=31789, val=6811, test=6813
+
+Splitting edges into train/val/test
+  Train edges: 31070
+  Val edges: 6658
+  Test edges: 6659
+  [hHep] train=31070, val=6658, test=6659
+
+Splitting edges into train/val/test
+  Train edges: 2667
+  Val edges: 571
+  Test edges: 573
+  [mDC] train=2667, val=571, test=573
+
+Splitting edges into train/val/test
+  Train edges: 33646
+  Val edges: 7210
+  Test edges: 7211
+  [mHSC-GM] train=33646, val=7210, test=7211
+
+Splitting edges into train/val/test
+  Train edges: 34109
+  Val edges: 7309
+  Test edges: 7310
+  [mHSC-E] train=34109, val=7309, test=7310
+  Saved multi-dataset edge splits to experiments/20260220_022612_sweep_run_transformer_leaky_relu_h128_l3_beeline_hESC/edge_splits/edge_splits.pkl
+
+  Multi-dataset summary:
+    Train samples: 133281 (from 5 datasets)
+    Val samples: 28559
+    Train batches: 131
+    Val batches: 28
+    Test [mESC]: 2 batches
+    Test [mHSC-L]: 47 batches
+
+Created TRANSFORMER model
+  Parameters: 265,601
+  Hidden dim: 128
+  Num layers: 3
+  Activation: leaky_relu
+  Dropout: 0.2
+✓ Saved results to experiments/20260220_022612_sweep_run_transformer_leaky_relu_h128_l3_beeline_hESC/results/results.yaml
+
+✓ Training completed successfully
+
+Test Metrics:
+  AUROC:     0.8106
+  AUPRC:     0.6469
+  Precision: 0.6134
+  Recall:    0.4745
+  F1:        0.4497
+  Threshold: 0.6555
+
+  Per-dataset test metrics:
+    [mESC] AUROC=0.6800 AUPRC=0.4350 F1=0.0804
+    [mHSC-L] AUROC=0.9412 AUPRC=0.8589 F1=0.8189
+
+[9/48] Running: model_type=transformer_activation=gelu_hidden_dim=64_num_layers=2_dropout=0.2_learning_rate=0.0005
+✓ Created experiment: 20260220_030846_sweep_run_transformer_gelu_h64_l2_beeline_hESC
+  Directory: experiments/20260220_030846_sweep_run_transformer_gelu_h64_l2_beeline_hESC
+
+================================================================================
+TRAINING EXPERIMENT
+================================================================================
+
+Starting training...
+
+Using device: cuda
+
+  Loading training datasets...
+  Loaded hESC: 2000 genes, 45413 GT edges
+  Loaded hHep: 2000 genes, 44387 GT edges
+  Loaded mDC: 2000 genes, 3811 GT edges
+  Loaded mHSC-GM: 2000 genes, 48067 GT edges
+  Loaded mHSC-E: 2000 genes, 48728 GT edges
+
+  Loading test datasets...
+  Loaded mESC: 2000 genes, 1573 GT edges
+  Loaded mHSC-L: 2000 genes, 47978 GT edges
+
+Creating multi-dataset data loaders
+
+Splitting edges into train/val/test
+  Train edges: 31789
+  Val edges: 6811
+  Test edges: 6813
+  [hESC] train=31789, val=6811, test=6813
+
+Splitting edges into train/val/test
+  Train edges: 31070
+  Val edges: 6658
+  Test edges: 6659
+  [hHep] train=31070, val=6658, test=6659
+
+Splitting edges into train/val/test
+  Train edges: 2667
+  Val edges: 571
+  Test edges: 573
+  [mDC] train=2667, val=571, test=573
+
+Splitting edges into train/val/test
+  Train edges: 33646
+  Val edges: 7210
+  Test edges: 7211
+  [mHSC-GM] train=33646, val=7210, test=7211
+
+Splitting edges into train/val/test
+  Train edges: 34109
+  Val edges: 7309
+  Test edges: 7310
+  [mHSC-E] train=34109, val=7309, test=7310
+  Saved multi-dataset edge splits to experiments/20260220_030846_sweep_run_transformer_gelu_h64_l2_beeline_hESC/edge_splits/edge_splits.pkl
+
+  Multi-dataset summary:
+    Train samples: 133281 (from 5 datasets)
+    Val samples: 28559
+    Train batches: 131
+    Val batches: 28
+    Test [mESC]: 2 batches
+    Test [mHSC-L]: 47 batches
+
+Created TRANSFORMER model
+  Parameters: 50,497
+  Hidden dim: 64
+  Num layers: 2
+  Activation: gelu
+  Dropout: 0.2
+✓ Saved results to experiments/20260220_030846_sweep_run_transformer_gelu_h64_l2_beeline_hESC/results/results.yaml
+
+✓ Training completed successfully
+
+Test Metrics:
+  AUROC:     0.7947
+  AUPRC:     0.6504
+  Precision: 0.6247
+  Recall:    0.5021
+  F1:        0.4982
+  Threshold: 0.6769
+
+  Per-dataset test metrics:
+    [mESC] AUROC=0.6473 AUPRC=0.4370 F1=0.1765
+    [mHSC-L] AUROC=0.9421 AUPRC=0.8638 F1=0.8200
+
+[10/48] Running: model_type=transformer_activation=gelu_hidden_dim=64_num_layers=2_dropout=0.2_learning_rate=0.001
+✓ Created experiment: 20260220_033859_sweep_run_transformer_gelu_h64_l2_beeline_hESC
+  Directory: experiments/20260220_033859_sweep_run_transformer_gelu_h64_l2_beeline_hESC
+
+================================================================================
+TRAINING EXPERIMENT
+================================================================================
+
+Starting training...
+
+Using device: cuda
+
+  Loading training datasets...
+  Loaded hESC: 2000 genes, 45413 GT edges
+  Loaded hHep: 2000 genes, 44387 GT edges
+  Loaded mDC: 2000 genes, 3811 GT edges
+  Loaded mHSC-GM: 2000 genes, 48067 GT edges
+  Loaded mHSC-E: 2000 genes, 48728 GT edges
+
+  Loading test datasets...
+  Loaded mESC: 2000 genes, 1573 GT edges
+  Loaded mHSC-L: 2000 genes, 47978 GT edges
+
+Creating multi-dataset data loaders
+
+Splitting edges into train/val/test
+  Train edges: 31789
+  Val edges: 6811
+  Test edges: 6813
+  [hESC] train=31789, val=6811, test=6813
+
+Splitting edges into train/val/test
+  Train edges: 31070
+  Val edges: 6658
+  Test edges: 6659
+  [hHep] train=31070, val=6658, test=6659
+
+Splitting edges into train/val/test
+  Train edges: 2667
+  Val edges: 571
+  Test edges: 573
+  [mDC] train=2667, val=571, test=573
+
+Splitting edges into train/val/test
+  Train edges: 33646
+  Val edges: 7210
+  Test edges: 7211
+  [mHSC-GM] train=33646, val=7210, test=7211
+
+Splitting edges into train/val/test
+  Train edges: 34109
+  Val edges: 7309
+  Test edges: 7310
+  [mHSC-E] train=34109, val=7309, test=7310
+  Saved multi-dataset edge splits to experiments/20260220_033859_sweep_run_transformer_gelu_h64_l2_beeline_hESC/edge_splits/edge_splits.pkl
+
+  Multi-dataset summary:
+    Train samples: 133281 (from 5 datasets)
+    Val samples: 28559
+    Train batches: 131
+    Val batches: 28
+    Test [mESC]: 2 batches
+    Test [mHSC-L]: 47 batches
+
+Created TRANSFORMER model
+  Parameters: 50,497
+  Hidden dim: 64
+  Num layers: 2
+  Activation: gelu
+  Dropout: 0.2
+✓ Saved results to experiments/20260220_033859_sweep_run_transformer_gelu_h64_l2_beeline_hESC/results/results.yaml
+
+✓ Training completed successfully
+
+Test Metrics:
+  AUROC:     0.8584
+  AUPRC:     0.7019
+  Precision: 0.6663
+  Recall:    0.5333
+  F1:        0.5429
+  Threshold: 0.6645
+
+  Per-dataset test metrics:
+    [mESC] AUROC=0.7776 AUPRC=0.5473 F1=0.2728
+    [mHSC-L] AUROC=0.9392 AUPRC=0.8565 F1=0.8131
+
+[11/48] Running: model_type=transformer_activation=gelu_hidden_dim=64_num_layers=3_dropout=0.2_learning_rate=0.0005
+✓ Created experiment: 20260220_040911_sweep_run_transformer_gelu_h64_l3_beeline_hESC
+  Directory: experiments/20260220_040911_sweep_run_transformer_gelu_h64_l3_beeline_hESC
+
+================================================================================
+TRAINING EXPERIMENT
+================================================================================
+
+Starting training...
+
+Using device: cuda
+
+  Loading training datasets...
+  Loaded hESC: 2000 genes, 45413 GT edges
+  Loaded hHep: 2000 genes, 44387 GT edges
+  Loaded mDC: 2000 genes, 3811 GT edges
+  Loaded mHSC-GM: 2000 genes, 48067 GT edges
+  Loaded mHSC-E: 2000 genes, 48728 GT edges
+
+  Loading test datasets...
+  Loaded mESC: 2000 genes, 1573 GT edges
+  Loaded mHSC-L: 2000 genes, 47978 GT edges
+
+Creating multi-dataset data loaders
+
+Splitting edges into train/val/test
+  Train edges: 31789
+  Val edges: 6811
+  Test edges: 6813
+  [hESC] train=31789, val=6811, test=6813
+
+Splitting edges into train/val/test
+  Train edges: 31070
+  Val edges: 6658
+  Test edges: 6659
+  [hHep] train=31070, val=6658, test=6659
+
+Splitting edges into train/val/test
+  Train edges: 2667
+  Val edges: 571
+  Test edges: 573
+  [mDC] train=2667, val=571, test=573
+
+Splitting edges into train/val/test
+  Train edges: 33646
+  Val edges: 7210
+  Test edges: 7211
+  [mHSC-GM] train=33646, val=7210, test=7211
+
+Splitting edges into train/val/test
+  Train edges: 34109
+  Val edges: 7309
+  Test edges: 7310
+  [mHSC-E] train=34109, val=7309, test=7310
+  Saved multi-dataset edge splits to experiments/20260220_040911_sweep_run_transformer_gelu_h64_l3_beeline_hESC/edge_splits/edge_splits.pkl
+
+  Multi-dataset summary:
+    Train samples: 133281 (from 5 datasets)
+    Val samples: 28559
+    Train batches: 131
+    Val batches: 28
+    Test [mESC]: 2 batches
+    Test [mHSC-L]: 47 batches
+
+Created TRANSFORMER model
+  Parameters: 67,265
+  Hidden dim: 64
+  Num layers: 3
+  Activation: gelu
+  Dropout: 0.2
+✓ Saved results to experiments/20260220_040911_sweep_run_transformer_gelu_h64_l3_beeline_hESC/results/results.yaml
+
+✓ Training completed successfully
+
+Test Metrics:
+  AUROC:     0.8944
+  AUPRC:     0.7444
+  Precision: 0.6925
+  Recall:    0.5371
+  F1:        0.5309
+  Threshold: 0.6692
+
+  Per-dataset test metrics:
+    [mESC] AUROC=0.8441 AUPRC=0.6311 F1=0.2264
+    [mHSC-L] AUROC=0.9447 AUPRC=0.8576 F1=0.8354
+
+[12/48] Running: model_type=transformer_activation=gelu_hidden_dim=64_num_layers=3_dropout=0.2_learning_rate=0.001
+✓ Created experiment: 20260220_044510_sweep_run_transformer_gelu_h64_l3_beeline_hESC
+  Directory: experiments/20260220_044510_sweep_run_transformer_gelu_h64_l3_beeline_hESC
+
+================================================================================
+TRAINING EXPERIMENT
+================================================================================
+
+Starting training...
+
+Using device: cuda
+
+  Loading training datasets...
+  Loaded hESC: 2000 genes, 45413 GT edges
+  Loaded hHep: 2000 genes, 44387 GT edges
+  Loaded mDC: 2000 genes, 3811 GT edges
+  Loaded mHSC-GM: 2000 genes, 48067 GT edges
+  Loaded mHSC-E: 2000 genes, 48728 GT edges
+
+  Loading test datasets...
+  Loaded mESC: 2000 genes, 1573 GT edges
+  Loaded mHSC-L: 2000 genes, 47978 GT edges
+
+Creating multi-dataset data loaders
+
+Splitting edges into train/val/test
+  Train edges: 31789
+  Val edges: 6811
+  Test edges: 6813
+  [hESC] train=31789, val=6811, test=6813
+
+Splitting edges into train/val/test
+  Train edges: 31070
+  Val edges: 6658
+  Test edges: 6659
+  [hHep] train=31070, val=6658, test=6659
+
+Splitting edges into train/val/test
+  Train edges: 2667
+  Val edges: 571
+  Test edges: 573
+  [mDC] train=2667, val=571, test=573
+
+Splitting edges into train/val/test
+  Train edges: 33646
+  Val edges: 7210
+  Test edges: 7211
+  [mHSC-GM] train=33646, val=7210, test=7211
+
+Splitting edges into train/val/test
+  Train edges: 34109
+  Val edges: 7309
+  Test edges: 7310
+  [mHSC-E] train=34109, val=7309, test=7310
+  Saved multi-dataset edge splits to experiments/20260220_044510_sweep_run_transformer_gelu_h64_l3_beeline_hESC/edge_splits/edge_splits.pkl
+
+  Multi-dataset summary:
+    Train samples: 133281 (from 5 datasets)
+    Val samples: 28559
+    Train batches: 131
+    Val batches: 28
+    Test [mESC]: 2 batches
+    Test [mHSC-L]: 47 batches
+
+Created TRANSFORMER model
+  Parameters: 67,265
+  Hidden dim: 64
+  Num layers: 3
+  Activation: gelu
+  Dropout: 0.2
+✓ Saved results to experiments/20260220_044510_sweep_run_transformer_gelu_h64_l3_beeline_hESC/results/results.yaml
+
+✓ Training completed successfully
+
+Test Metrics:
+  AUROC:     0.8501
+  AUPRC:     0.6961
+  Precision: 0.6541
+  Recall:    0.4727
+  F1:        0.4813
+  Threshold: 0.6615
+
+  Per-dataset test metrics:
+    [mESC] AUROC=0.7655 AUPRC=0.5551 F1=0.1656
+    [mHSC-L] AUROC=0.9347 AUPRC=0.8372 F1=0.7971
+
+[13/48] Running: model_type=transformer_activation=gelu_hidden_dim=128_num_layers=2_dropout=0.2_learning_rate=0.0005
+✓ Created experiment: 20260220_052113_sweep_run_transformer_gelu_h128_l2_beeline_hESC
+  Directory: experiments/20260220_052113_sweep_run_transformer_gelu_h128_l2_beeline_hESC
+
+================================================================================
+TRAINING EXPERIMENT
+================================================================================
+
+Starting training...
+
+Using device: cuda
+
+  Loading training datasets...
+  Loaded hESC: 2000 genes, 45413 GT edges
+  Loaded hHep: 2000 genes, 44387 GT edges
+  Loaded mDC: 2000 genes, 3811 GT edges
+  Loaded mHSC-GM: 2000 genes, 48067 GT edges
+  Loaded mHSC-E: 2000 genes, 48728 GT edges
+
+  Loading test datasets...
+  Loaded mESC: 2000 genes, 1573 GT edges
+  Loaded mHSC-L: 2000 genes, 47978 GT edges
+
+Creating multi-dataset data loaders
+
+Splitting edges into train/val/test
+  Train edges: 31789
+  Val edges: 6811
+  Test edges: 6813
+  [hESC] train=31789, val=6811, test=6813
+
+Splitting edges into train/val/test
+  Train edges: 31070
+  Val edges: 6658
+  Test edges: 6659
+  [hHep] train=31070, val=6658, test=6659
+
+Splitting edges into train/val/test
+  Train edges: 2667
+  Val edges: 571
+  Test edges: 573
+  [mDC] train=2667, val=571, test=573
+
+Splitting edges into train/val/test
+  Train edges: 33646
+  Val edges: 7210
+  Test edges: 7211
+  [mHSC-GM] train=33646, val=7210, test=7211
+
+Splitting edges into train/val/test
+  Train edges: 34109
+  Val edges: 7309
+  Test edges: 7310
+  [mHSC-E] train=34109, val=7309, test=7310
+  Saved multi-dataset edge splits to experiments/20260220_052113_sweep_run_transformer_gelu_h128_l2_beeline_hESC/edge_splits/edge_splits.pkl
+
+  Multi-dataset summary:
+    Train samples: 133281 (from 5 datasets)
+    Val samples: 28559
+    Train batches: 131
+    Val batches: 28
+    Test [mESC]: 2 batches
+    Test [mHSC-L]: 47 batches
+
+Created TRANSFORMER model
+  Parameters: 199,297
+  Hidden dim: 128
+  Num layers: 2
+  Activation: gelu
+  Dropout: 0.2
+✓ Saved results to experiments/20260220_052113_sweep_run_transformer_gelu_h128_l2_beeline_hESC/results/results.yaml
+
+✓ Training completed successfully
+
+Test Metrics:
+  AUROC:     0.8382
+  AUPRC:     0.6881
+  Precision: 0.6664
+  Recall:    0.4632
+  F1:        0.4577
+  Threshold: 0.6515
+
+  Per-dataset test metrics:
+    [mESC] AUROC=0.7374 AUPRC=0.5266 F1=0.1158
+    [mHSC-L] AUROC=0.9390 AUPRC=0.8496 F1=0.7996
+
+[14/48] Running: model_type=transformer_activation=gelu_hidden_dim=128_num_layers=2_dropout=0.2_learning_rate=0.001
+✓ Created experiment: 20260220_055551_sweep_run_transformer_gelu_h128_l2_beeline_hESC
+  Directory: experiments/20260220_055551_sweep_run_transformer_gelu_h128_l2_beeline_hESC
+
+================================================================================
+TRAINING EXPERIMENT
+================================================================================
+
+Starting training...
+
+Using device: cuda
+
+  Loading training datasets...
+  Loaded hESC: 2000 genes, 45413 GT edges
+  Loaded hHep: 2000 genes, 44387 GT edges
+  Loaded mDC: 2000 genes, 3811 GT edges
+  Loaded mHSC-GM: 2000 genes, 48067 GT edges
+  Loaded mHSC-E: 2000 genes, 48728 GT edges
+
+  Loading test datasets...
+  Loaded mESC: 2000 genes, 1573 GT edges
+  Loaded mHSC-L: 2000 genes, 47978 GT edges
+
+Creating multi-dataset data loaders
+
+Splitting edges into train/val/test
+  Train edges: 31789
+  Val edges: 6811
+  Test edges: 6813
+  [hESC] train=31789, val=6811, test=6813
+
+Splitting edges into train/val/test
+  Train edges: 31070
+  Val edges: 6658
+  Test edges: 6659
+  [hHep] train=31070, val=6658, test=6659
+
+Splitting edges into train/val/test
+  Train edges: 2667
+  Val edges: 571
+  Test edges: 573
+  [mDC] train=2667, val=571, test=573
+
+Splitting edges into train/val/test
+  Train edges: 33646
+  Val edges: 7210
+  Test edges: 7211
+  [mHSC-GM] train=33646, val=7210, test=7211
+
+Splitting edges into train/val/test
+  Train edges: 34109
+  Val edges: 7309
+  Test edges: 7310
+  [mHSC-E] train=34109, val=7309, test=7310
+  Saved multi-dataset edge splits to experiments/20260220_055551_sweep_run_transformer_gelu_h128_l2_beeline_hESC/edge_splits/edge_splits.pkl
+
+  Multi-dataset summary:
+    Train samples: 133281 (from 5 datasets)
+    Val samples: 28559
+    Train batches: 131
+    Val batches: 28
+    Test [mESC]: 2 batches
+    Test [mHSC-L]: 47 batches
+
+Created TRANSFORMER model
+  Parameters: 199,297
+  Hidden dim: 128
+  Num layers: 2
+  Activation: gelu
+  Dropout: 0.2
+✓ Saved results to experiments/20260220_055551_sweep_run_transformer_gelu_h128_l2_beeline_hESC/results/results.yaml
+
+✓ Training completed successfully
+
+Test Metrics:
+  AUROC:     0.8120
+  AUPRC:     0.6678
+  Precision: 0.6405
+  Recall:    0.4207
+  F1:        0.4394
+  Threshold: 0.6580
+
+  Per-dataset test metrics:
+    [mESC] AUROC=0.6897 AUPRC=0.4906 F1=0.1208
+    [mHSC-L] AUROC=0.9343 AUPRC=0.8451 F1=0.7580
+
+[15/48] Running: model_type=transformer_activation=gelu_hidden_dim=128_num_layers=3_dropout=0.2_learning_rate=0.0005
+✓ Created experiment: 20260220_063031_sweep_run_transformer_gelu_h128_l3_beeline_hESC
+  Directory: experiments/20260220_063031_sweep_run_transformer_gelu_h128_l3_beeline_hESC
+
+================================================================================
+TRAINING EXPERIMENT
+================================================================================
+
+Starting training...
+
+Using device: cuda
+
+  Loading training datasets...
+  Loaded hESC: 2000 genes, 45413 GT edges
+  Loaded hHep: 2000 genes, 44387 GT edges
+  Loaded mDC: 2000 genes, 3811 GT edges
+  Loaded mHSC-GM: 2000 genes, 48067 GT edges
+  Loaded mHSC-E: 2000 genes, 48728 GT edges
+
+  Loading test datasets...
+  Loaded mESC: 2000 genes, 1573 GT edges
+  Loaded mHSC-L: 2000 genes, 47978 GT edges
+
+Creating multi-dataset data loaders
+
+Splitting edges into train/val/test
+  Train edges: 31789
+  Val edges: 6811
+  Test edges: 6813
+  [hESC] train=31789, val=6811, test=6813
+
+Splitting edges into train/val/test
+  Train edges: 31070
+  Val edges: 6658
+  Test edges: 6659
+  [hHep] train=31070, val=6658, test=6659
+
+Splitting edges into train/val/test
+  Train edges: 2667
+  Val edges: 571
+  Test edges: 573
+  [mDC] train=2667, val=571, test=573
+
+Splitting edges into train/val/test
+  Train edges: 33646
+  Val edges: 7210
+  Test edges: 7211
+  [mHSC-GM] train=33646, val=7210, test=7211
+
+Splitting edges into train/val/test
+  Train edges: 34109
+  Val edges: 7309
+  Test edges: 7310
+  [mHSC-E] train=34109, val=7309, test=7310
+  Saved multi-dataset edge splits to experiments/20260220_063031_sweep_run_transformer_gelu_h128_l3_beeline_hESC/edge_splits/edge_splits.pkl
+
+  Multi-dataset summary:
+    Train samples: 133281 (from 5 datasets)
+    Val samples: 28559
+    Train batches: 131
+    Val batches: 28
+    Test [mESC]: 2 batches
+    Test [mHSC-L]: 47 batches
+
+Created TRANSFORMER model
+  Parameters: 265,601
+  Hidden dim: 128
+  Num layers: 3
+  Activation: gelu
+  Dropout: 0.2
+✓ Saved results to experiments/20260220_063031_sweep_run_transformer_gelu_h128_l3_beeline_hESC/results/results.yaml
+
+✓ Training completed successfully
+
+Test Metrics:
+  AUROC:     0.8437
+  AUPRC:     0.6671
+  Precision: 0.6387
+  Recall:    0.4529
+  F1:        0.4361
+  Threshold: 0.6518
+
+  Per-dataset test metrics:
+    [mESC] AUROC=0.7486 AUPRC=0.4834 F1=0.0723
+    [mHSC-L] AUROC=0.9388 AUPRC=0.8509 F1=0.7999
+
+[16/48] Running: model_type=transformer_activation=gelu_hidden_dim=128_num_layers=3_dropout=0.2_learning_rate=0.001
+✓ Created experiment: 20260220_071312_sweep_run_transformer_gelu_h128_l3_beeline_hESC
+  Directory: experiments/20260220_071312_sweep_run_transformer_gelu_h128_l3_beeline_hESC
+
+================================================================================
+TRAINING EXPERIMENT
+================================================================================
+
+Starting training...
+
+Using device: cuda
+
+  Loading training datasets...
+  Loaded hESC: 2000 genes, 45413 GT edges
+  Loaded hHep: 2000 genes, 44387 GT edges
+  Loaded mDC: 2000 genes, 3811 GT edges
+  Loaded mHSC-GM: 2000 genes, 48067 GT edges
+  Loaded mHSC-E: 2000 genes, 48728 GT edges
+
+  Loading test datasets...
+  Loaded mESC: 2000 genes, 1573 GT edges
+  Loaded mHSC-L: 2000 genes, 47978 GT edges
+
+Creating multi-dataset data loaders
+
+Splitting edges into train/val/test
+  Train edges: 31789
+  Val edges: 6811
+  Test edges: 6813
+  [hESC] train=31789, val=6811, test=6813
+
+Splitting edges into train/val/test
+  Train edges: 31070
+  Val edges: 6658
+  Test edges: 6659
+  [hHep] train=31070, val=6658, test=6659
+
+Splitting edges into train/val/test
+  Train edges: 2667
+  Val edges: 571
+  Test edges: 573
+  [mDC] train=2667, val=571, test=573
+
+Splitting edges into train/val/test
+  Train edges: 33646
+  Val edges: 7210
+  Test edges: 7211
+  [mHSC-GM] train=33646, val=7210, test=7211
+
+Splitting edges into train/val/test
+  Train edges: 34109
+  Val edges: 7309
+  Test edges: 7310
+  [mHSC-E] train=34109, val=7309, test=7310
+  Saved multi-dataset edge splits to experiments/20260220_071312_sweep_run_transformer_gelu_h128_l3_beeline_hESC/edge_splits/edge_splits.pkl
+
+  Multi-dataset summary:
+    Train samples: 133281 (from 5 datasets)
+    Val samples: 28559
+    Train batches: 131
+    Val batches: 28
+    Test [mESC]: 2 batches
+    Test [mHSC-L]: 47 batches
+
+Created TRANSFORMER model
+  Parameters: 265,601
+  Hidden dim: 128
+  Num layers: 3
+  Activation: gelu
+  Dropout: 0.2
+✓ Saved results to experiments/20260220_071312_sweep_run_transformer_gelu_h128_l3_beeline_hESC/results/results.yaml
+
+✓ Training completed successfully
+
+Test Metrics:
+  AUROC:     0.8109
+  AUPRC:     0.6460
+  Precision: 0.6455
+  Recall:    0.4845
+  F1:        0.4507
+  Threshold: 0.6611
+
+  Per-dataset test metrics:
+    [mESC] AUROC=0.6730 AUPRC=0.4132 F1=0.0679
+    [mHSC-L] AUROC=0.9488 AUPRC=0.8787 F1=0.8334
+
+[17/48] Running: model_type=gat_activation=leaky_relu_hidden_dim=64_num_layers=2_dropout=0.2_learning_rate=0.0005
+✓ Created experiment: 20260220_075552_sweep_run_gat_leaky_relu_h64_l2_beeline_hESC
+  Directory: experiments/20260220_075552_sweep_run_gat_leaky_relu_h64_l2_beeline_hESC
+
+================================================================================
+TRAINING EXPERIMENT
+================================================================================
+
+Starting training...
+
+Using device: cuda
+
+  Loading training datasets...
+  Loaded hESC: 2000 genes, 45413 GT edges
+  Loaded hHep: 2000 genes, 44387 GT edges
+  Loaded mDC: 2000 genes, 3811 GT edges
+  Loaded mHSC-GM: 2000 genes, 48067 GT edges
+  Loaded mHSC-E: 2000 genes, 48728 GT edges
+
+  Loading test datasets...
+  Loaded mESC: 2000 genes, 1573 GT edges
+  Loaded mHSC-L: 2000 genes, 47978 GT edges
+
+Creating multi-dataset data loaders
+
+Splitting edges into train/val/test
+  Train edges: 31789
+  Val edges: 6811
+  Test edges: 6813
+  [hESC] train=31789, val=6811, test=6813
+
+Splitting edges into train/val/test
+  Train edges: 31070
+  Val edges: 6658
+  Test edges: 6659
+  [hHep] train=31070, val=6658, test=6659
+
+Splitting edges into train/val/test
+  Train edges: 2667
+  Val edges: 571
+  Test edges: 573
+  [mDC] train=2667, val=571, test=573
+
+Splitting edges into train/val/test
+  Train edges: 33646
+  Val edges: 7210
+  Test edges: 7211
+  [mHSC-GM] train=33646, val=7210, test=7211
+
+Splitting edges into train/val/test
+  Train edges: 34109
+  Val edges: 7309
+  Test edges: 7310
+  [mHSC-E] train=34109, val=7309, test=7310
+  Saved multi-dataset edge splits to experiments/20260220_075552_sweep_run_gat_leaky_relu_h64_l2_beeline_hESC/edge_splits/edge_splits.pkl
+
+  Multi-dataset summary:
+    Train samples: 133281 (from 5 datasets)
+    Val samples: 28559
+    Train batches: 131
+    Val batches: 28
+    Test [mESC]: 2 batches
+    Test [mHSC-L]: 47 batches
+
+Created GAT model
+  Parameters: 35,009
+  Hidden dim: 64
+  Num layers: 2
+  Activation: leaky_relu
+  Dropout: 0.2
+✓ Saved results to experiments/20260220_075552_sweep_run_gat_leaky_relu_h64_l2_beeline_hESC/results/results.yaml
+
+✓ Training completed successfully
+
+Test Metrics:
+  AUROC:     0.7533
+  AUPRC:     0.5739
+  Precision: 0.5679
+  Recall:    0.9766
+  F1:        0.7037
+  Threshold: 0.6771
+
+  Per-dataset test metrics:
+    [mESC] AUROC=0.5814 AUPRC=0.3436 F1=0.5866
+    [mHSC-L] AUROC=0.9252 AUPRC=0.8042 F1=0.8209
+
+[18/48] Running: model_type=gat_activation=leaky_relu_hidden_dim=64_num_layers=2_dropout=0.2_learning_rate=0.001
+✓ Created experiment: 20260220_081744_sweep_run_gat_leaky_relu_h64_l2_beeline_hESC
+  Directory: experiments/20260220_081744_sweep_run_gat_leaky_relu_h64_l2_beeline_hESC
+
+================================================================================
+TRAINING EXPERIMENT
+================================================================================
+
+Starting training...
+
+Using device: cuda
+
+  Loading training datasets...
+  Loaded hESC: 2000 genes, 45413 GT edges
+  Loaded hHep: 2000 genes, 44387 GT edges
+  Loaded mDC: 2000 genes, 3811 GT edges
+  Loaded mHSC-GM: 2000 genes, 48067 GT edges
+  Loaded mHSC-E: 2000 genes, 48728 GT edges
+
+  Loading test datasets...
+  Loaded mESC: 2000 genes, 1573 GT edges
+  Loaded mHSC-L: 2000 genes, 47978 GT edges
+
+Creating multi-dataset data loaders
+
+Splitting edges into train/val/test
+  Train edges: 31789
+  Val edges: 6811
+  Test edges: 6813
+  [hESC] train=31789, val=6811, test=6813
+
+Splitting edges into train/val/test
+  Train edges: 31070
+  Val edges: 6658
+  Test edges: 6659
+  [hHep] train=31070, val=6658, test=6659
+
+Splitting edges into train/val/test
+  Train edges: 2667
+  Val edges: 571
+  Test edges: 573
+  [mDC] train=2667, val=571, test=573
+
+Splitting edges into train/val/test
+  Train edges: 33646
+  Val edges: 7210
+  Test edges: 7211
+  [mHSC-GM] train=33646, val=7210, test=7211
+
+Splitting edges into train/val/test
+  Train edges: 34109
+  Val edges: 7309
+  Test edges: 7310
+  [mHSC-E] train=34109, val=7309, test=7310
+  Saved multi-dataset edge splits to experiments/20260220_081744_sweep_run_gat_leaky_relu_h64_l2_beeline_hESC/edge_splits/edge_splits.pkl
+
+  Multi-dataset summary:
+    Train samples: 133281 (from 5 datasets)
+    Val samples: 28559
+    Train batches: 131
+    Val batches: 28
+    Test [mESC]: 2 batches
+    Test [mHSC-L]: 47 batches
+
+Created GAT model
+  Parameters: 35,009
+  Hidden dim: 64
+  Num layers: 2
+  Activation: leaky_relu
+  Dropout: 0.2
+✓ Saved results to experiments/20260220_081744_sweep_run_gat_leaky_relu_h64_l2_beeline_hESC/results/results.yaml
+
+✓ Training completed successfully
+
+Test Metrics:
+  AUROC:     0.7427
+  AUPRC:     0.5691
+  Precision: 0.5557
+  Recall:    0.9915
+  F1:        0.6972
+  Threshold: 0.5934
+
+  Per-dataset test metrics:
+    [mESC] AUROC=0.5596 AUPRC=0.3387 F1=0.5644
+    [mHSC-L] AUROC=0.9259 AUPRC=0.7995 F1=0.8300
+
+[19/48] Running: model_type=gat_activation=leaky_relu_hidden_dim=64_num_layers=3_dropout=0.2_learning_rate=0.0005
+✓ Created experiment: 20260220_083605_sweep_run_gat_leaky_relu_h64_l3_beeline_hESC
+  Directory: experiments/20260220_083605_sweep_run_gat_leaky_relu_h64_l3_beeline_hESC
+
+================================================================================
+TRAINING EXPERIMENT
+================================================================================
+
+Starting training...
+
+Using device: cuda
+
+  Loading training datasets...
+  Loaded hESC: 2000 genes, 45413 GT edges
+  Loaded hHep: 2000 genes, 44387 GT edges
+  Loaded mDC: 2000 genes, 3811 GT edges
+  Loaded mHSC-GM: 2000 genes, 48067 GT edges
+  Loaded mHSC-E: 2000 genes, 48728 GT edges
+
+  Loading test datasets...
+  Loaded mESC: 2000 genes, 1573 GT edges
+  Loaded mHSC-L: 2000 genes, 47978 GT edges
+
+Creating multi-dataset data loaders
+
+Splitting edges into train/val/test
+  Train edges: 31789
+  Val edges: 6811
+  Test edges: 6813
+  [hESC] train=31789, val=6811, test=6813
+
+Splitting edges into train/val/test
+  Train edges: 31070
+  Val edges: 6658
+  Test edges: 6659
+  [hHep] train=31070, val=6658, test=6659
+
+Splitting edges into train/val/test
+  Train edges: 2667
+  Val edges: 571
+  Test edges: 573
+  [mDC] train=2667, val=571, test=573
+
+Splitting edges into train/val/test
+  Train edges: 33646
+  Val edges: 7210
+  Test edges: 7211
+  [mHSC-GM] train=33646, val=7210, test=7211
+
+Splitting edges into train/val/test
+  Train edges: 34109
+  Val edges: 7309
+  Test edges: 7310
+  [mHSC-E] train=34109, val=7309, test=7310
+  Saved multi-dataset edge splits to experiments/20260220_083605_sweep_run_gat_leaky_relu_h64_l3_beeline_hESC/edge_splits/edge_splits.pkl
+
+  Multi-dataset summary:
+    Train samples: 133281 (from 5 datasets)
+    Val samples: 28559
+    Train batches: 131
+    Val batches: 28
+    Test [mESC]: 2 batches
+    Test [mHSC-L]: 47 batches
+
+Created GAT model
+  Parameters: 101,313
+  Hidden dim: 64
+  Num layers: 3
+  Activation: leaky_relu
+  Dropout: 0.2
+✓ Saved results to experiments/20260220_083605_sweep_run_gat_leaky_relu_h64_l3_beeline_hESC/results/results.yaml
+
+✓ Training completed successfully
+
+Test Metrics:
+  AUROC:     0.7414
+  AUPRC:     0.5706
+  Precision: 0.5424
+  Recall:    0.8020
+  F1:        0.6443
+  Threshold: 0.6711
+
+  Per-dataset test metrics:
+    [mESC] AUROC=0.5631 AUPRC=0.3418 F1=0.4677
+    [mHSC-L] AUROC=0.9198 AUPRC=0.7993 F1=0.8210
+
+[20/48] Running: model_type=gat_activation=leaky_relu_hidden_dim=64_num_layers=3_dropout=0.2_learning_rate=0.001
+✓ Created experiment: 20260220_091220_sweep_run_gat_leaky_relu_h64_l3_beeline_hESC
+  Directory: experiments/20260220_091220_sweep_run_gat_leaky_relu_h64_l3_beeline_hESC
+
+================================================================================
+TRAINING EXPERIMENT
+================================================================================
+
+Starting training...
+
+Using device: cuda
+
+  Loading training datasets...
+  Loaded hESC: 2000 genes, 45413 GT edges
+  Loaded hHep: 2000 genes, 44387 GT edges
+  Loaded mDC: 2000 genes, 3811 GT edges
+  Loaded mHSC-GM: 2000 genes, 48067 GT edges
+  Loaded mHSC-E: 2000 genes, 48728 GT edges
+
+  Loading test datasets...
+  Loaded mESC: 2000 genes, 1573 GT edges
+  Loaded mHSC-L: 2000 genes, 47978 GT edges
+
+Creating multi-dataset data loaders
+
+Splitting edges into train/val/test
+  Train edges: 31789
+  Val edges: 6811
+  Test edges: 6813
+  [hESC] train=31789, val=6811, test=6813
+
+Splitting edges into train/val/test
+  Train edges: 31070
+  Val edges: 6658
+  Test edges: 6659
+  [hHep] train=31070, val=6658, test=6659
+
+Splitting edges into train/val/test
+  Train edges: 2667
+  Val edges: 571
+  Test edges: 573
+  [mDC] train=2667, val=571, test=573
+
+Splitting edges into train/val/test
+  Train edges: 33646
+  Val edges: 7210
+  Test edges: 7211
+  [mHSC-GM] train=33646, val=7210, test=7211
+
+Splitting edges into train/val/test
+  Train edges: 34109
+  Val edges: 7309
+  Test edges: 7310
+  [mHSC-E] train=34109, val=7309, test=7310
+  Saved multi-dataset edge splits to experiments/20260220_091220_sweep_run_gat_leaky_relu_h64_l3_beeline_hESC/edge_splits/edge_splits.pkl
+
+  Multi-dataset summary:
+    Train samples: 133281 (from 5 datasets)
+    Val samples: 28559
+    Train batches: 131
+    Val batches: 28
+    Test [mESC]: 2 batches
+    Test [mHSC-L]: 47 batches
+
+Created GAT model
+  Parameters: 101,313
+  Hidden dim: 64
+  Num layers: 3
+  Activation: leaky_relu
+  Dropout: 0.2
+✓ Saved results to experiments/20260220_091220_sweep_run_gat_leaky_relu_h64_l3_beeline_hESC/results/results.yaml
+
+✓ Training completed successfully
+
+Test Metrics:
+  AUROC:     0.7418
+  AUPRC:     0.5753
+  Precision: 0.5574
+  Recall:    1.0000
+  F1:        0.7008
+  Threshold: 0.6420
+
+  Per-dataset test metrics:
+    [mESC] AUROC=0.5495 AUPRC=0.3214 F1=0.5612
+    [mHSC-L] AUROC=0.9340 AUPRC=0.8292 F1=0.8405
+
+[21/48] Running: model_type=gat_activation=leaky_relu_hidden_dim=128_num_layers=2_dropout=0.2_learning_rate=0.0005
+✓ Created experiment: 20260220_094829_sweep_run_gat_leaky_relu_h128_l2_beeline_hESC
+  Directory: experiments/20260220_094829_sweep_run_gat_leaky_relu_h128_l2_beeline_hESC
+
+================================================================================
+TRAINING EXPERIMENT
+================================================================================
+
+Starting training...
+
+Using device: cuda
+
+  Loading training datasets...
+  Loaded hESC: 2000 genes, 45413 GT edges
+  Loaded hHep: 2000 genes, 44387 GT edges
+  Loaded mDC: 2000 genes, 3811 GT edges
+  Loaded mHSC-GM: 2000 genes, 48067 GT edges
+  Loaded mHSC-E: 2000 genes, 48728 GT edges
+
+  Loading test datasets...
+  Loaded mESC: 2000 genes, 1573 GT edges
+  Loaded mHSC-L: 2000 genes, 47978 GT edges
+
+Creating multi-dataset data loaders
+
+Splitting edges into train/val/test
+  Train edges: 31789
+  Val edges: 6811
+  Test edges: 6813
+  [hESC] train=31789, val=6811, test=6813
+
+Splitting edges into train/val/test
+  Train edges: 31070
+  Val edges: 6658
+  Test edges: 6659
+  [hHep] train=31070, val=6658, test=6659
+
+Splitting edges into train/val/test
+  Train edges: 2667
+  Val edges: 571
+  Test edges: 573
+  [mDC] train=2667, val=571, test=573
+
+Splitting edges into train/val/test
+  Train edges: 33646
+  Val edges: 7210
+  Test edges: 7211
+  [mHSC-GM] train=33646, val=7210, test=7211
+
+Splitting edges into train/val/test
+  Train edges: 34109
+  Val edges: 7309
+  Test edges: 7310
+  [mHSC-E] train=34109, val=7309, test=7310
+  Saved multi-dataset edge splits to experiments/20260220_094829_sweep_run_gat_leaky_relu_h128_l2_beeline_hESC/edge_splits/edge_splits.pkl
+
+  Multi-dataset summary:
+    Train samples: 133281 (from 5 datasets)
+    Val samples: 28559
+    Train batches: 131
+    Val batches: 28
+    Test [mESC]: 2 batches
+    Test [mHSC-L]: 47 batches
+
+Created GAT model
+  Parameters: 135,553
+  Hidden dim: 128
+  Num layers: 2
+  Activation: leaky_relu
+  Dropout: 0.2
+✓ Saved results to experiments/20260220_094829_sweep_run_gat_leaky_relu_h128_l2_beeline_hESC/results/results.yaml
+
+✓ Training completed successfully
+
+Test Metrics:
+  AUROC:     0.7457
+  AUPRC:     0.5871
+  Precision: 0.5551
+  Recall:    0.9750
+  F1:        0.6899
+  Threshold: 0.6436
+
+  Per-dataset test metrics:
+    [mESC] AUROC=0.5648 AUPRC=0.3633 F1=0.5593
+    [mHSC-L] AUROC=0.9267 AUPRC=0.8108 F1=0.8205
+
+[22/48] Running: model_type=gat_activation=leaky_relu_hidden_dim=128_num_layers=2_dropout=0.2_learning_rate=0.001
+✓ Created experiment: 20260220_101418_sweep_run_gat_leaky_relu_h128_l2_beeline_hESC
+  Directory: experiments/20260220_101418_sweep_run_gat_leaky_relu_h128_l2_beeline_hESC
+
+================================================================================
+TRAINING EXPERIMENT
+================================================================================
+
+Starting training...
+
+Using device: cuda
+
+  Loading training datasets...
+  Loaded hESC: 2000 genes, 45413 GT edges
+  Loaded hHep: 2000 genes, 44387 GT edges
+  Loaded mDC: 2000 genes, 3811 GT edges
+  Loaded mHSC-GM: 2000 genes, 48067 GT edges
+  Loaded mHSC-E: 2000 genes, 48728 GT edges
+
+  Loading test datasets...
+  Loaded mESC: 2000 genes, 1573 GT edges
+  Loaded mHSC-L: 2000 genes, 47978 GT edges
+
+Creating multi-dataset data loaders
+
+Splitting edges into train/val/test
+  Train edges: 31789
+  Val edges: 6811
+  Test edges: 6813
+  [hESC] train=31789, val=6811, test=6813
+
+Splitting edges into train/val/test
+  Train edges: 31070
+  Val edges: 6658
+  Test edges: 6659
+  [hHep] train=31070, val=6658, test=6659
+
+Splitting edges into train/val/test
+  Train edges: 2667
+  Val edges: 571
+  Test edges: 573
+  [mDC] train=2667, val=571, test=573
+
+Splitting edges into train/val/test
+  Train edges: 33646
+  Val edges: 7210
+  Test edges: 7211
+  [mHSC-GM] train=33646, val=7210, test=7211
+
+Splitting edges into train/val/test
+  Train edges: 34109
+  Val edges: 7309
+  Test edges: 7310
+  [mHSC-E] train=34109, val=7309, test=7310
+  Saved multi-dataset edge splits to experiments/20260220_101418_sweep_run_gat_leaky_relu_h128_l2_beeline_hESC/edge_splits/edge_splits.pkl
+
+  Multi-dataset summary:
+    Train samples: 133281 (from 5 datasets)
+    Val samples: 28559
+    Train batches: 131
+    Val batches: 28
+    Test [mESC]: 2 batches
+    Test [mHSC-L]: 47 batches
+
+Created GAT model
+  Parameters: 135,553
+  Hidden dim: 128
+  Num layers: 2
+  Activation: leaky_relu
+  Dropout: 0.2
+✓ Saved results to experiments/20260220_101418_sweep_run_gat_leaky_relu_h128_l2_beeline_hESC/results/results.yaml
+
+✓ Training completed successfully
+
+Test Metrics:
+  AUROC:     0.7997
+  AUPRC:     0.6288
+  Precision: 0.5443
+  Recall:    0.9891
+  F1:        0.6826
+  Threshold: 0.6178
+
+  Per-dataset test metrics:
+    [mESC] AUROC=0.6759 AUPRC=0.4565 F1=0.5312
+    [mHSC-L] AUROC=0.9236 AUPRC=0.8011 F1=0.8340
+
+[23/48] Running: model_type=gat_activation=leaky_relu_hidden_dim=128_num_layers=3_dropout=0.2_learning_rate=0.0005
+✓ Created experiment: 20260220_102748_sweep_run_gat_leaky_relu_h128_l3_beeline_hESC
+  Directory: experiments/20260220_102748_sweep_run_gat_leaky_relu_h128_l3_beeline_hESC
+
+================================================================================
+TRAINING EXPERIMENT
+================================================================================
+
+Starting training...
+
+Using device: cuda
+
+  Loading training datasets...
+  Loaded hESC: 2000 genes, 45413 GT edges
+  Loaded hHep: 2000 genes, 44387 GT edges
+  Loaded mDC: 2000 genes, 3811 GT edges
+  Loaded mHSC-GM: 2000 genes, 48067 GT edges
+  Loaded mHSC-E: 2000 genes, 48728 GT edges
+
+  Loading test datasets...
+  Loaded mESC: 2000 genes, 1573 GT edges
+  Loaded mHSC-L: 2000 genes, 47978 GT edges
+
+Creating multi-dataset data loaders
+
+Splitting edges into train/val/test
+  Train edges: 31789
+  Val edges: 6811
+  Test edges: 6813
+  [hESC] train=31789, val=6811, test=6813
+
+Splitting edges into train/val/test
+  Train edges: 31070
+  Val edges: 6658
+  Test edges: 6659
+  [hHep] train=31070, val=6658, test=6659
+
+Splitting edges into train/val/test
+  Train edges: 2667
+  Val edges: 571
+  Test edges: 573
+  [mDC] train=2667, val=571, test=573
+
+Splitting edges into train/val/test
+  Train edges: 33646
+  Val edges: 7210
+  Test edges: 7211
+  [mHSC-GM] train=33646, val=7210, test=7211
+
+Splitting edges into train/val/test
+  Train edges: 34109
+  Val edges: 7309
+  Test edges: 7310
+  [mHSC-E] train=34109, val=7309, test=7310
+  Saved multi-dataset edge splits to experiments/20260220_102748_sweep_run_gat_leaky_relu_h128_l3_beeline_hESC/edge_splits/edge_splits.pkl
+
+  Multi-dataset summary:
+    Train samples: 133281 (from 5 datasets)
+    Val samples: 28559
+    Train batches: 131
+    Val batches: 28
+    Test [mESC]: 2 batches
+    Test [mHSC-L]: 47 batches
+
+Created GAT model
+  Parameters: 399,233
+  Hidden dim: 128
+  Num layers: 3
+  Activation: leaky_relu
+  Dropout: 0.2
