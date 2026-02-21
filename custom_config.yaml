@@ -1,0 +1,56 @@
+# Custom config - best settings from sweep
+# transformer + leaky_relu + h64 + l2 + lr=0.0005 (AUROC: 0.8999)
+
+data:
+  raw_data_dir: './data/raw'
+  processed_data_dir: './data/processed'
+  datasets:
+    train:
+      - beeline_hESC
+      - beeline_hHep
+      - beeline_mDC
+      - beeline_mHSC-GM
+      - beeline_mHSC-E
+    test:
+      - beeline_mESC
+      - beeline_mHSC-L
+  dataset_name: 'beeline_hESC'
+  correlation_threshold: 0.3
+  max_genes: 2000
+  use_only_tfs: false
+
+model:
+  model_type: 'transformer'
+  hidden_dim: 64
+  num_layers: 2
+  dropout: 0.2
+  num_heads: 4
+  activation: 'leaky_relu'
+
+training:
+  num_epochs: 1000
+  batch_size: 1024
+  learning_rate: 0.0005
+  weight_decay: 0.00001
+  train_ratio: 0.7
+  val_ratio: 0.15
+  test_ratio: 0.15
+  patience: 100
+  seed: 42
+  use_gpu: true
+
+loss:
+  loss_type: 'adaptive'
+  neg_sampling_ratio: 2.0
+
+evaluation:
+  metrics: ['auroc', 'auprc', 'f1', 'precision', 'recall']
+  threshold: 0.5
+  bootstrap_iterations: 10
+
+output:
+  checkpoint_dir: './checkpoints'
+  results_dir: './results'
+  log_dir: './logs'
+  save_predictions: true
+  generate_plots: true
