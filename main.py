@@ -432,9 +432,26 @@ def sweep_experiment(config, experiment_id, exp_manager, sweep_config_path):
             all_results.append(result_entry)
 
         # Save sweep results
+        # Save sweep results
         import pandas as pd
+        import yaml
+
         results_df = pd.DataFrame(all_results)
         exp_dir = exp_manager.get_experiment_dir(experiment_id)
+
+        # If auroc missing (train_experiment returned None), reload from saved yaml files
+        if 'auroc' not in results_df.columns or results_df['auroc'].isna().all():
+            print("Reloading metrics from saved results files...")
+            for idx, row in results_df.iterrows():
+                sub_exp_dir = exp_manager.get_experiment_dir(row['experiment_id'])
+                results_path = sub_exp_dir / 'results' / 'results.yaml'
+                if results_path.exists():
+                    with open(results_path) as f:
+                        saved = yaml.safe_load(f)
+                    if saved and 'test_metrics' in saved:
+                        for k, v in saved['test_metrics'].items():
+                            results_df.at[idx, k] = v
+
         results_df.to_csv(exp_dir / 'results' / 'sweep_results.csv', index=False)
 
         # Find best configuration
